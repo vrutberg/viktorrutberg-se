@@ -14,11 +14,20 @@ a { color: #ccc; }
 .photo-container .caption { font-size: 1.2em; cursor: default; background-color: rgba(0, 0, 0, .7); border-radius: 0 0 10px 10px; padding: 10px; line-height: 1.0; display: inline-block; position: absolute; bottom: 0; left: 0; right: 0; }
 .photo-container img { width: 100%; border-radius: 10px; }
 
+.tag-cloud { font-size: 1em; text-align: center; }
+.tag-cloud span { display: inline-block; padding: 2px; background-color: rgba(255, 255, 255, .066);  }
+.tag-cloud  .t-20 { font-size: .8em; }
+.tag-cloud  .t-40 { font-size: 1em; }
+.tag-cloud  .t-60 { font-size: 1.2em; }
+.tag-cloud  .t-80 { font-size: 1.45em; }
+.tag-cloud .t-100 { font-size: 1.8em; }
+
 @media only screen and (min-width: 500px) {
 	body { font-size: 16px; }
-	.photo-container { float: right; width: 220px; margin: 0 0 15px 30px; }
+	.tag-cloud, .photo-container { float: right; width: 220px; margin: 0 0 15px 30px; clear: right; }
+	.tag-cloud { font-size: .7em; }
 	.photo-container .caption { font-size: .8em; }
-	.text { margin-right: 270px; }
+	.text { margin-right: 250px; }
 }
 
 @media only screen and (min-width: 800px) {
