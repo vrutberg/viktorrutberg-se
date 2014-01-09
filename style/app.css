@@ -15,7 +15,7 @@ a { color: #ccc; }
 .photo-container img { width: 100%; border-radius: 10px; }
 
 .tag-cloud { font-size: 1em; text-align: center; list-style: none; }
-.tag-cloud li { display: inline; padding: 2px; background-color: rgba(255, 255, 255, .066);  }
+.tag-cloud li { display: inline-block; padding: 2px; background-color: rgba(255, 255, 255, .066);  }
 .tag-cloud  .t-20 { font-size: .8em; }
 .tag-cloud  .t-40 { font-size: 1em; }
 .tag-cloud  .t-60 { font-size: 1.2em; }
