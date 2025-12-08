@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Insights from my first year as an iOS developer | Viktor Rutberg</title>
+<meta name="keywords" content="">
+<meta name="description" content="About a year ago, in December 2015, I made the switch from frontend web development to iOS app development. I was fortunate enough to be able to do so without joining a new employer, and I was also fortunate enough to work in an all-Swift app. In fact, I’ve not written a single line of Objective-C during my year as an iOS developer.
+Before making the switch, I’d worked professionally with the web since 2008, and privately a good bit longer, both with backend and frontend development over the years. I generally like to do a bit of both. But now, it was time to try something new. This blogpost sums up some of my insights after one year as an iOS developer. Let’s get cracking.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/insights-from-my-first-year-as-ios-dev/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/insights-from-my-first-year-as-ios-dev/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Viktor Rutberg (Alt + H)">Viktor Rutberg</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Insights from my first year as an iOS developer
+    </h1>
+    <div class="post-meta"><span title='2016-11-21 10:09:12 +0100 CET'>November 21, 2016</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>About a year ago, in December 2015, I made the switch from frontend web development to iOS app development. I was fortunate enough to be able to do so without joining a new employer, and I was also fortunate enough to work in an all-Swift app. In fact, I’ve not written a single line of Objective-C during my year as an iOS developer.</p>
+<p>Before making the switch, I’d worked professionally with the web since 2008, and privately a good bit longer, both with backend and frontend development over the years. I generally like to do a bit of both. But now, it was time to try something new. This blogpost sums up some of my insights after one year as an iOS developer. Let’s get cracking.</p>
+<h3 id="xcode">Xcode<a hidden class="anchor" aria-hidden="true" href="#xcode">#</a></h3>
+<p>Coming from web development, I have mostly been using IntelliJ, Sublime Text and Atom for the last couple of years. Xcode, being a full-scale IDE and not just an editor, is probably closest to IntelliJ in this comparison, and let’s just say JetBrains have set a high standard.</p>
+<p>There is no easy way to say this, so I’ll just lay it out flat: Xcode falls short in every aspect when comparing it to IntelliJ. It isn’t better at a single thing. My experience with Xcode is that it’s unstable, slow and unpredictable. Something simple enough as switching between branches on the command-line can make Xcode crash or behave in other unexpected ways. Other times, when something doesn’t work as you’d expect, simply restarting Xcode is regarded as a valid fix. Sometimes, another valid fix is to delete everything in your DerivedData folder. As a developer, I don’t trust Xcode. When is it okay to have an IDE this bad, especially when there is no alternative? Never, Apple, the answer is never. It is never okay to have an IDE that is as bad as Xcode.</p>
+<p><img alt="Xcode crashing: Unfortunately a common sight for an iOS Developer" loading="lazy" src="/posts/insights-from-my-first-year-as-ios-dev/xcode-crash.webp"></p>
+<p>An aspect of Xcode I’ve really tried to learn to like is the Interface Builder. Apple seems to be quite fond of the Interface Builder, which I find a bit odd. Coming from web development, I see Interface Builder as a WYSIWYG editor of sorts. And in web development, using any kind of WYSIWYG editor hasn’t been part of professional development for at least 10 years, probably even longer than that. How come Apple is pouring so much effort into it? Coincidentally, while Interface Builder could be the single part of Xcode that receives most attention from Apple, my experience is that it might be the most unstable and unpredictable part of Xcode.</p>
+<p>Another topic I’d like to bring up when speaking of Xcode is refactoring support in Swift. It’s quite simple: there is none. Be it that Swift is a new language, but it’s been around for a bit over 2 years now, and there is still no refactoring support for Swift at all. I’ll just repeat that: None at all. Renaming and refactoring code should be dead simple. JetBrains really got this right in my opinion. If you’ve refactored something using IntelliJ, you can trust IntelliJ to have done it, and done it right. Not having refactoring support in your IDE after 2+ years is not okay. Not okay.</p>
+<p>If I come across as a bit negative towards Xcode, it’s because I am. It’s unstable, doesn’t have the features I want from an IDE, and there is no alternative. I’m stuck with it.</p>
+<h3 id="continuous-integration-app-distribution-and-app-delivery">Continuous Integration, App Distribution and App Delivery<a hidden class="anchor" aria-hidden="true" href="#continuous-integration-app-distribution-and-app-delivery">#</a></h3>
+<p>Apple supports continuous integration in iOS projects with Xcode Server and bots. In our project, we’ve set up a couple of Mac Minis with Xcode Server, using bots and Fastlane to build, test and ultimately deliver apps to iTunes Connect, Apples cloud service for app distribution.</p>
+<p>Now, you may ask, what is Fastlane? Fastlane is a set of command-line tools to automate tasks around testing, building and delivering iOS apps. Fastlane is a great tool, surrounded by a great community. But it suffers from not being supported by Apple. It suffers from not being a 1st party tool. You could argue that it’s fundamentally a hack, a product of reverse-engineering private APIs. The fact that Apple doesn’t have a proper solution to this is beyond me. Using Xcode Server and a bot (without using 3rd party tools such as Fastlane), it is impossible to automatically test, build and upload app builds to iTunes Connect. You cannot do it. You have to rely on 3rd party tools to make this work. 3rd party tools that may break whenever Apple decides to change something, because they have to use undocumented features and APIs.</p>
+<p>Furthermore, once you have built your app and want to ship it, there is no way to release it gradually to your users, i.e. perform a staged roll-out. Once you’ve released your app, you’ve released it to everyone. And there is no rollback feature. If you happen to release a version that’s really bad in some way, your two options are to fix it ASAP and release a new version, or to remove your app from the App Store entirely while you build a new version.</p>
+<h3 id="closed-source-proprietary-environment">Closed-Source Proprietary Environment<a hidden class="anchor" aria-hidden="true" href="#closed-source-proprietary-environment">#</a></h3>
+<p>A few years ago, I used to do IBM Lotus Domino/Notes development. Basically, it boiled down to using a proprietary IDE to write apps for a proprietary and enterprisey ecosystem. The IDE was horrendous, it was prone to crashing and could never be trusted. There was no SCM support, no build automation tools and no dependency management, just to name a few things. And there was nothing I, as a developer, could do about it. There simply were no alternatives to the solutions (or lack there-of) that IBM provided. I was solely in the hands of IBM.</p>
+<p>Perhaps not so strangely, this is what comes to mind when I try to sum up my first year as an iOS Developer: developing for iOS is development in a closed-source proprietary environment. In stark contrast with the web in general, iOS is a closed and proprietary ecosystem where you, as a developer, are in the hands of Apple on so many levels. You rely on Apple for the IDE, developer tools, documentation, dependency management, app distribution channels and so many other things. There is no alternative to the App Store. If you want to change how something in the App Store works or add a new feature to it, you have to rely on Apple to do it for you. For better or for worse, this is how it is.</p>
+<p>Apple taketh, and Apple giveth, and there’s not a thing you can do about it. Except file a radar and hope it receives attention.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Viktor Rutberg</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
