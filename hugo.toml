@@ -1,0 +1,4 @@
+baseURL = 'https://viktorrutberg.se/'
+languageCode = 'en-us'
+title = 'Viktor Rutberg'
+theme = 'PaperMod'
