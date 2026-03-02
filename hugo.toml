@@ -2,3 +2,6 @@ baseURL = 'https://blog.viktorrutberg.se/'
 languageCode = 'en-us'
 title = 'Viktor Rutberg'
 theme = 'PaperMod'
+
+[security]
+  enableInlineShortcodes = true
