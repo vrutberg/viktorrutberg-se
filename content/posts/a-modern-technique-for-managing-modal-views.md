@@ -13,11 +13,11 @@ Second, `OperationQueue` and `Operation` don't play nice with Swift Concurrency.
 
 Since introducing this technique in my current project, I've had a long tail of rarely occurring crashes. Crashes I simply couldn't fix. And eventually, I had enough. **There had to be a better way.** And there is ✨.
 
-### The better way™ 
+## The better way™ 
 
 Instead of using `Operation` to model our modal views, we're going to use `Task`. And instead of using an `OperationQueue` for ordering and serial execution, we'll simply hold a list of async functions that are waiting to be run. Sounds easy, right? That's because it is. Let's dive in!
 
-#### `LaunchStep`
+### `LaunchStep`
 
 Each modal operation will conform to the protocol `LaunchStep`:
 
@@ -146,7 +146,7 @@ This example is a bit more complex, with lots of things happening. It deals with
 
 Okay, so now that we've had a look at two launch steps, how do we orchestrate them? It's time to introduce `LaunchSequencer`.
 
-#### `LaunchSequencer`
+### `LaunchSequencer`
 
 ```swift
 @MainActor
@@ -192,7 +192,7 @@ Upon completion of each launch step, it will clear the current task, and start p
 
 The `cancelAll` method will cancel and nil out the ongoing task (if any), and clear the list of pending launch steps.
 
-#### Usage
+### Usage
 
 So, how should we use this? Well, here's how it's used in the app I currently work on:
 
@@ -220,7 +220,7 @@ private func addLaunchSteps() {
 
 This function is called every time the app is launched or brought into the foreground. It makes sure that these operations run every time, in the same order, when needed.
 
-#### Wrapping up
+### Wrapping up
 
 This is a more modern way of dealing with serial modal views in Swift, leveraging compile-time concurrency checks, and is overall simply less code and less error-prone than subclassing `Operation` and managing its different states.
 
