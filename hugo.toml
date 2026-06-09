@@ -5,3 +5,10 @@ theme = 'PaperMod'
 
 [security]
   enableInlineShortcodes = true
+
+[menus]
+  [[menus.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 10
