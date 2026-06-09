@@ -7,9 +7,9 @@ title = 'A modern technique for managing serial modal views'
 
 [In January 2024]({{< relref "/posts/a-technique-for-managing-modal-views-in-ios.md" >}}), I wrote about a technique for managing serial modal views on iOS by subclassing `Operation` and using a serial `OperationQueue`. As it turns out, that technique had its fair share of problems.
 
-First, `OperationQueue` and `Operation` are sharp tools: using them is **hard**. It's easy to cut yourself. Even though I really tried, I never quite got rid of all the problems in my `OperationQueue` based approach, so it kept causing odd problems and hard-to-debug data races. I'm sure it's possible to use this tools properly, I just couldn't get to that point.
+First, `OperationQueue` and `Operation` are sharp tools: using them is **hard**. It's easy to cut yourself. Even though I really tried, I never quite got rid of all the problems in my `OperationQueue` based approach. It kept causing odd problems and hard-to-debug data races. I'm sure it's possible to use this tools properly, I just couldn't get to that point.
 
-Second, `OperationQueue` and `Operation` don't play nice with Swift Concurrency. For example, there is no compile-time isolation checking, so it's easy to accidentally update a property from the wrong context. `Operation` is declared as `@unchecked Sendable`, which means any subclasses also are `@unchecked Sendable`, so already at that point you've opted out of compile-time concurrency checks.
+Second, `OperationQueue` and `Operation` don't play nice with Swift Concurrency. For example, there is no compile-time isolation checking, so it's easy to accidentally introduce data races. `Operation` is declared as `@unchecked Sendable`, which means any subclasses also are `@unchecked Sendable`, so already at that point you've opted out of compile-time concurrency checks.
 
 Since introducing this technique in my current project, I've had a long tail of rarely occurring crashes. Crashes I simply couldn't fix. And eventually, I had enough. **There had to be a better way.** And there is ✨.
 
@@ -33,7 +33,7 @@ extension LaunchStep {
 }
 ```
 
-It's a simple protocol, containing a name and an async `run` function. Conveniently, the `name` property can be automatically provided by defaulting to the type name of the implementation, so all we have to do is provide a `run` function!
+It's a simple protocol, containing a name and an async `run` function. Conveniently, the `name` property can be automatically provided by defaulting to the type name of the implementation, so all we have to do in each implementation is to implement the `run` method.
 
 Here's how a launch step fetching an app upgrade nudge might look like:
 
@@ -194,7 +194,7 @@ The `cancelAll` method will cancel and nil out the ongoing task (if any), and cl
 
 ### Usage
 
-So, how should we use this? Well, here's how it's used in the app I currently work on:
+So, how should we use this? Well, here's how it's used in my app:
 
 ```swift
 private func addLaunchSteps() {
@@ -233,6 +233,8 @@ The solution described in this blog post is already live in my app, and is alrea
 * Cancellation is explicit and structured
 
 * No reliance on KVO-backed Operation state
+
+* A reliable way of bootstrapping the app when launching
 
 If you happen to spot something that can be improved (either in the code I posted, or in this post), please give me a shout out on Mastodon.
 
